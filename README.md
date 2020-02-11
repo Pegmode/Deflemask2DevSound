@@ -1,6 +1,6 @@
 # Deflemask2DevSound
 
-Deflemask .DMF module to DevSound Assembly source converter written in early 2018. Currently Effects are not fully supported. Only pastes note and pattern data.
+Deflemask .DMF module to [DevSound](https://github.com/DevEd2/DevSound) Assembly source converter written in early 2018. Currently Effects are not fully supported. Only pastes note and pattern data.
 
 ## Useage
 Run Deflemask2DevSound.py with the Deflemask Module named "test.dmf" in the same directory. Program will auto generate "DevSound_SongData.asm"
