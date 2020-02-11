@@ -78,7 +78,6 @@ DS_NoteTable = [
 ]
 
 def OffsetBinConvert(_ByteData): #Converts signed Offset Binary into a python int
-    #fucking python why do you suck so hard.
     #I'm sorry for anyone who has to look at this garbage. This is probably the worst code I've ever written.
     #_ByteData =  219
     _NegFlag = int(1)
