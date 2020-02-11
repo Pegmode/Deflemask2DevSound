@@ -8,7 +8,8 @@ import sys
 import struct
 import os
 
-os.chdir('C:\\Users\\Daniel\\Documents\\python\\Deflemask2Devsound')
+FILEPATH = 'C:\\Users\\Daniel\\Documents\\python\\Deflemask2Devsound'
+os.chdir(FILEPATH)
 
 #Decoded dmf Data
 class DmfData:
@@ -95,7 +96,7 @@ def OffsetBinConvert(_ByteData): #Converts signed Offset Binary into a python in
     if _NegFlag == 1:
       _CompBuffer = '' #S O R R Y
       for _bit in _ByteContents: #R E A L L Y
-        if _bit == '1':# F U C K
+        if _bit == '1':# ****
             _CompBuffer += '0'
         else:
               _CompBuffer+= '1'
