@@ -1,6 +1,6 @@
 #Deflemask2DevSound
 #Written by Pegmode
-#Discord Contact: Pegmode#1079
+
 
 
 import zlib
@@ -536,8 +536,7 @@ f.write('; DevSound song data\n')
 f.write('; ================================================================\n\n')
 
 f.write(';File Generated Deflemask2DevSound\n')
-f.write(';by pegmode \n')
-f.write(';Discord Contact: Pegmode#1079\n\n')
+f.write(';by pegmode \n\n')
 
 
 f.write('; ================================================================\n')
