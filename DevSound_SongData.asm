@@ -4,7 +4,6 @@
 
 ;File Generated Deflemask2DevSound
 ;by pegmode 
-;Discord Contact: Pegmode#1079
 
 ; ================================================================
 ; Song speed table
