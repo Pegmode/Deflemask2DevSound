@@ -55,7 +55,7 @@ class DmfGBModule():
         self.engineRefreshStd = decompressedDMF[currentIndex]
         currentIndex += 1
         #customrefesh (not supported)
-        if decompressedDMF[currentIndex] == 1
+        if decompressedDMF[currentIndex] == 1:
             sys.exit("Incompatible .dmf: Custom Refresh rates not supported")
         currentIndex += 4
         #rowsPerPattern
