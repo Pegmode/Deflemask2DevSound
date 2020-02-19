@@ -60,9 +60,13 @@ class DmfGBModule():
         currentIndex += 4
         #rowsPerPattern
         self.rowsPerPattern = decompressedDMF[currentIndex]
-        currentIndex += 4
+        currentIndex += 4#for some reason the format reserves 4 bytes dispite the trackers max value for this being 255
         #total rows in pattern matrix
         self.patternMatrixSize = decompressedDMF[currentIndex]
+        currentIndex += 1
+
+        ## pattern matrix block
+
 
     def __moveToNextBlock(self,currentIndex,currentBlockLength,decompressedDMF):
         currentIndex += currentBlockLength + 1
