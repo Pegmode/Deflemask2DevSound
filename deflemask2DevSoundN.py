@@ -12,9 +12,8 @@ class DmfGBModule():
         self.tickTime1 = None
         self.tickTime2 = None
         self.engineRefreshStd = None
-        self.customRefreshFlag = None
         self.rowsPerPattern = None
-        self.patterMatrixRowCount = None
+        self.patternMatrixSize = None
         self.effectColSize = 1
 
         self.patternMatrix = []
@@ -37,9 +36,33 @@ class DmfGBModule():
         currentIndex,currentBlockLength = self.__moveToNextBlock(currentIndex,currentBlockLength,decompressedDMF)
         self.authorName = self.__parseString(decompressedDMF[currentIndex+1:currentIndex + currentBlockLength+1])
         printSt("Author: {}".format(self.authorName))
-
-
-
+        #pattern highlight (bpm calc later)
+        currentIndex += 2 #skip pattern highlight
+        #timeBase
+        if decompressedDMF[currentIndex] != 0: #value 0 = base time 1
+            sys.exit("Incompatible .dmf: Currently only base time 01 is supported")#should be easy to fix in future
+        currentIndex += 1
+        #TickTimes
+        self.tickTime1 = decompressedDMF[currentIndex]
+        currentIndex += 1
+        self.tickTime2 = decompressedDMF[currentIndex]
+        currentIndex += 1
+        #engineRefreshStd
+        if decompressedDMF[currentIndex] == 0:
+            sys.exit("Incompatible .dmf: PAL speed not supported")
+        if decompressedDMF[currentIndex] != 1:
+            sys.exit('Inconpatible .dmf: Malformatted Refresh Standard (are you using a custom refresh rate?)')
+        self.engineRefreshStd = decompressedDMF[currentIndex]
+        currentIndex += 1
+        #customrefesh (not supported)
+        if decompressedDMF[currentIndex] == 1
+            sys.exit("Incompatible .dmf: Custom Refresh rates not supported")
+        currentIndex += 4
+        #rowsPerPattern
+        self.rowsPerPattern = decompressedDMF[currentIndex]
+        currentIndex += 4
+        #total rows in pattern matrix
+        self.patternMatrixSize = decompressedDMF[currentIndex]
 
     def __moveToNextBlock(self,currentIndex,currentBlockLength,decompressedDMF):
         currentIndex += currentBlockLength + 1
